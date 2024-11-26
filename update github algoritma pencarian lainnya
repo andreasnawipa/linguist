@@ -1,0 +1,78 @@
+1. Ternary Search
+
+    Konsep: Ternary search adalah algoritma berbasis divide and conquer yang membagi array terurut menjadi tiga bagian dengan dua titik pembagi (misalnya, sepertiga dan dua pertiga dari array).
+    Cara Kerja:
+        Tentukan dua titik pembagi di array.
+        Bandingkan elemen target dengan nilai di kedua titik pembagi.
+        Fokuskan pencarian pada salah satu dari tiga bagian (bagian kiri, tengah, atau kanan).
+        Ulangi proses hingga elemen ditemukan atau ukuran array menjadi nol.
+    Kelebihan:
+        Efisien pada data yang sangat besar.
+        Mirip dengan binary search tetapi membagi array menjadi tiga bagian, sehingga lebih cepat dalam beberapa kasus.
+    Kekurangan:
+        Hanya cocok untuk data terurut.
+        Lebih kompleks dibandingkan binary search.
+
+2. Jump Search
+
+    Konsep: Jump search adalah algoritma pencarian yang mempercepat pencarian dengan melompat sejumlah langkah tetap hingga menemukan interval di mana elemen target berada, lalu melanjutkan pencarian linier dalam interval tersebut.
+    Cara Kerja:
+        Tentukan ukuran lompatan optimal, biasanya √n (di mana n adalah panjang array).
+        Lakukan lompatan ke indeks tertentu hingga menemukan elemen lebih besar atau sama dengan elemen target.
+        Setelah interval ditemukan, lakukan pencarian linier dalam interval tersebut.
+    Kelebihan:
+        Lebih efisien daripada pencarian linier untuk array besar.
+        Cocok untuk array terurut.
+    Kekurangan:
+        Tidak efektif untuk array yang tidak terurut.
+        Memerlukan perhitungan lompatan optimal (√n).
+
+3. Interpolation Search
+
+    Konsep: Algoritma ini memanfaatkan posisi relatif elemen target terhadap elemen awal dan akhir array untuk memperkirakan lokasinya. Pencarian ini mirip seperti cara mencari nama di buku telepon.
+    Cara Kerja:
+        Hitung posisi target menggunakan rumus interpolasi:
+        pos=low+(target−array[low])×(high−low)array[high]−array[low]
+        pos=low+array[high]−array[low](target−array[low])×(high−low)​
+        Periksa apakah elemen target berada di posisi tersebut.
+        Jika tidak, perbarui batas (low atau high) sesuai dengan posisi target dan ulangi proses.
+    Kelebihan:
+        Sangat cepat jika data memiliki distribusi yang merata.
+        Lebih baik daripada binary search pada data tertentu.
+    Kekurangan:
+        Tidak efektif jika data tidak terdistribusi secara seragam.
+        Rumit untuk diterapkan jika data memiliki pola yang tidak jelas.
+
+4. Fibonacci Search
+
+    Konsep: Fibonacci search adalah algoritma yang mengandalkan deret Fibonacci untuk menentukan titik pembagian array. Pendekatan ini serupa dengan binary search tetapi menggunakan pembagian berdasarkan angka Fibonacci.
+    Cara Kerja:
+        Tentukan dua angka Fibonacci yang membatasi panjang array.
+        Gunakan angka Fibonacci untuk membagi array menjadi dua bagian (proporsi yang tidak setara).
+        Periksa elemen di titik pembagian, lalu tentukan bagian mana yang perlu dicari lebih lanjut.
+        Ulangi proses hingga elemen ditemukan.
+    Kelebihan:
+        Optimal untuk array terurut.
+        Tidak membutuhkan perhitungan pembagian seperti binary search (memanfaatkan pengurangan).
+    Kekurangan:
+        Hanya cocok untuk data terurut.
+        Kompleksitasnya lebih tinggi dibandingkan binary search.
+
+5. Exponential Search
+
+    Konsep: Exponential search digunakan untuk mencari elemen dalam array yang sangat besar dengan menemukan rentang pencarian yang sesuai menggunakan langkah-langkah eksponensial, lalu melakukan binary search dalam rentang tersebut.
+    Cara Kerja:
+        Mulai dari indeks pertama, lalu periksa elemen dengan indeks eksponensial (1, 2, 4, 8, dst.).
+        Ketika elemen target berada di antara dua indeks eksponensial, lakukan binary search di rentang tersebut.
+    Kelebihan:
+        Cepat untuk array besar, terutama jika elemen target berada di awal array.
+        Kombinasi pencarian eksponensial dan binary search memberikan efisiensi tinggi.
+    Kekurangan:
+        Hanya berfungsi untuk data terurut.
+        Tidak efektif untuk array kecil.
+
+Kesimpulan:
+
+    Semua algoritma di atas dirancang untuk meningkatkan efisiensi pencarian dibandingkan dengan pencarian linier.
+    Binary search tetap menjadi algoritma pencarian dasar yang paling sering digunakan, tetapi algoritma seperti Jump Search dan Interpolation Search menawarkan alternatif yang lebih optimal dalam kondisi tertentu.
+    Ternary Search dan Fibonacci Search cocok untuk data besar dan situasi spesifik, sementara Exponential Search sangat berguna dalam array yang sangat besar.
